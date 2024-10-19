@@ -14,9 +14,12 @@ def base64_decode(encoded_str):
 
 try:
     with open('firstPart.txt', 'r') as file:
-        encoded_link = file.read().strip()
+        encoded_firstPart_link = file.read().strip()
+    with open('secondPart.txt','r') as file:
+        encoded_secondPart_link=file.read().strip()
+    encoded_link=encoded_firstPart_link+encoded_secondPart_link
     base64_decode(encoded_link)
 except FileNotFoundError:
-    print("Error: firstPart.txt not found.")
+    print("Hmm, It seems that the file we are searching for is not here, did you actually merged both branches ?")
 except Exception as e:
     print(f"An error occurred: {e}")
